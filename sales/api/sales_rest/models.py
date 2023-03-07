@@ -1,3 +1,19 @@
 from django.db import models
 
-# Create your models here.
+
+class SalesPerson(models.Model):
+
+
+
+
+class Customer(models.Model):
+
+
+
+
+class SalesHistory(models.Model):
+
+
+
+
+class InventoryVO(models.Model):
