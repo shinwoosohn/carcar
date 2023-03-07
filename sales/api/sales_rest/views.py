@@ -8,11 +8,11 @@ from common.json import ModelEncoder
 
 class SalesPersonEncoder(ModelEncoder):
     model = SalesPerson
-    properties = ["name", "employee_number", "id"]
+    properties = ["sales_person", "employee_number", "id"]
 
 class CustomerEncoder(ModelEncoder):
     model = Customer
-    properties = ["name", "id"]
+    properties = ["customer_name", "id"]
 
 class SalesHistoryEncoder(ModelEncoder):
     model = SalesHistory
@@ -66,6 +66,7 @@ def api_list_sales_history (request):
             {"sales_history": sales_history},
             encoder=SalesHistoryEncoder,
         )
+
     else:
         content = json.loads(request.body)
         new_sale = SalesHistory.objects.create(**content)
