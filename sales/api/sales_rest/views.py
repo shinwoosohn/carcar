@@ -25,7 +25,6 @@ class AutoEncoder(ModelEncoder):
     properties = ["vin_number", "available_for_sale"]
 
 
-
 @require_http_methods(["GET", "POST"])
 def api_list_sales_persons (request):
     if request.method == "GET":
@@ -71,13 +70,13 @@ def api_list_sales_history (request):
 
     else:
         content = json.loads(request.body)
-        print(content)
+
         automobile = content["sold_auto_vin"]
-        print(automobile)
+
         sold_auto = AutomobileVO.objects.get(vin_number=automobile)
-        print(sold_auto)
+
         content["sold_auto_vin"] = sold_auto
-        print(content)
+
         new_sale = SalesHistory.objects.create(**content)
         sold_auto.available_for_sale = False
         sold_auto.save()
