@@ -2,11 +2,14 @@ from django.db import models
 
 # Create your models here.
 class AutomobileVO(models.Model):
-    vin = models.CharField(max_length=17, unique=True)
-    import_href = models.CharField(max_length=200, unique=True)
+    color = models.CharField(max_length=200)
+    year = models.PositiveIntegerField()
+    vin = models.CharField(max_length=17, unqiue=True)
 
     def __str__(self):
         return self.vin
+
+
 
 
 
@@ -30,7 +33,7 @@ class Appointment(models.Model):
 
     technician_name = models.ForeignKey(
         Technician,
-        related_name="appointment",
+        related_name="technician",
         on_delete=models.CASCADE
     )
 
