@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainPage from './MainPage';
 import Nav from './Nav';
+import VehicleList from './VehicleList';
+import AddModel from './AddModel';
 
 function App() {
   return (
@@ -9,6 +11,8 @@ function App() {
       <div className="container">
         <Routes>
           <Route path="/" element={<MainPage />} />
+          <Route path="/models/" element={<VehicleList />} />
+          <Route path="/models/new" element={<AddModel />} />
         </Routes>
       </div>
     </BrowserRouter>
