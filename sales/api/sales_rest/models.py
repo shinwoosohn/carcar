@@ -29,7 +29,7 @@ class SalesHistory(models.Model):
 
     buyer = models.CharField(max_length=200)
 
-    sold_auto = models.ForeignKey(
+    sold_auto_vin = models.ForeignKey(
         AutomobileVO,
         related_name="sold_auto",
         on_delete=models.PROTECT
