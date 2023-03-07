@@ -3,6 +3,8 @@ import MainPage from './MainPage';
 import ManufacturerForm from './ManufacturerForm';
 import ManufacturerList from './ManufacturerList';
 import Nav from './Nav';
+import VehicleList from './VehicleList';
+import AddModel from './AddModel';
 
 function App() {
   return (
@@ -13,6 +15,11 @@ function App() {
           <Route path="/" element={<MainPage />} />
           <Route path="manufacturers" element={<ManufacturerList />} />
           <Route path="manufacturers/new" element={<ManufacturerForm />} />
+          <Route path="/models" element={<VehicleList />} />
+          <Route path="/models/new" element={<AddModel />} />
+
+
+
         </Routes>
       </div>
     </BrowserRouter>
