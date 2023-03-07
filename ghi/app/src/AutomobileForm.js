@@ -42,7 +42,7 @@ function AutomobileForm() {
             setColor('');
             setYear('');
             setVin('');
-            navigate('/automobiles/')
+            navigate('/automobiles/');
 
         }
     }
