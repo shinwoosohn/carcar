@@ -26,20 +26,61 @@ class AutoEncoder(ModelEncoder):
 
 @require_http_methods(["GET", "POST"])
 def api_list_sales_persons (request):
-
-
-
+    if request.method == "GET":
+        sales_persons = SalesPerson.objects.all()
+        return JsonResponse(
+            {"sales_persons": sales_persons},
+            encoder=SalesPersonEncoder,
+        )
+    else:
+        content = json.loads(request.body)
+        new_sales_person = SalesPerson.objects.create(**content)
+        return JsonResponse(
+            new_sales_person,
+            encoder=SalesPersonEncoder,
+            safe=False,
+        )
 
 @require_http_methods(["GET", "POST"])
 def api_list_customers (request):
-
-
-
+    if request.method == "GET":
+        customers = Customer.objects.all()
+        return JsonResponse(
+            {"customers": customers},
+            encoder=CustomerEncoder,
+        )
+    else:
+        content = json.loads(request.body)
+        new_customer = Customer.objects.create(**content)
+        return JsonResponse(
+            new_customer,
+            encoder=CustomerEncoder,
+            safe=False,
+        )
 
 @require_http_methods(["GET", "POST"])
-def api_list_saleshistory (request):
+def api_list_sales_history (request):
+    if request.method == "GET":
+        sales_history = SalesHistory.objects.all()
+        return JsonResponse(
+            {"sales_history": sales_history},
+            encoder=SalesHistoryEncoder,
+        )
+    else:
+        content = json.loads(request.body)
+        new_sale = SalesHistory.objects.create(**content)
+        return JsonResponse(
+            new_sale,
+            encoder=SalesHistoryEncoder,
+            safe=False,
+        )
 
 
-
-@require_http_methods(["GET", "POST"])
+@require_http_methods(["GET"])
 def api_list_available_autos (request):
+    autos = AutomobileVO.objects.filter(available_for_sale=True)
+    return JsonResponse(
+        autos,
+        encoder=AutoEncoder,
+        safe=False,
+    )
