@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 
 function ManufacturerForm() {
+    const navigate = useNavigate();
     const[name, setManufacturerName] = useState('');
 
     const handleSubmit = async (event) => {
@@ -22,6 +23,8 @@ function ManufacturerForm() {
         if (response.ok) {
 
             setManufacturerName('');
+            navigate('/manufacturers/')
+
 
         }
     }
