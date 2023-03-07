@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 class AutomobileVO(models.Model):
@@ -8,6 +9,9 @@ class AutomobileVO(models.Model):
     def __str__(self):
         return self.vin
 
+    def get_api_url(self):
+        return reverse("api_automobile", kwargs={"pk": self.id})
+
 
 
 class Technician(models.Model):
@@ -16,6 +20,9 @@ class Technician(models.Model):
 
     def __str__(self):
         return self.technician_name
+
+    def get_api_url(self):
+        return reverse("api_technician", kwargs={"pk": self.id})
 
 
 
@@ -36,3 +43,6 @@ class Appointment(models.Model):
 
     def __str__(self):
         return self.customer_name
+
+    def get_api_url(self):
+        return reverse("api_appointment", kwargs={"pk": self.id})
