@@ -2,6 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function VehicleList() {
+
+    useEffect(  () =>  {
+        fetchVehicles()
+
+    }, [] );
+
     const [models, setModels] = useState([]);
 
     const fetchVehicles = async () => {
@@ -16,10 +22,7 @@ function VehicleList() {
         };
       };
 
-      useEffect(  () =>  {
-        fetchVehicles()
 
-    }, [] );
 
     return(
         <>
