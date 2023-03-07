@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
+
 function ManufacturerForm() {
     const[name, setManufacturerName] = useState('');
 
@@ -21,6 +22,7 @@ function ManufacturerForm() {
         if (response.ok) {
 
             setManufacturerName('');
+
         }
     }
 

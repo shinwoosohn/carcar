@@ -37,7 +37,7 @@ function ManufacturerList() {
                 </tbody>
                 <div className="d-grid gap-2 d-sm-flex justify-content-sm-left">
                     <Link to="/manufacturers/new" className="btn btn-primary">Create a manufacturer</Link>
-                 </div>
+                </div>
             </table>
         </>
     );

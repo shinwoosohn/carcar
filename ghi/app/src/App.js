@@ -19,7 +19,7 @@ function App() {
           <Route path="/manufacturers/new" element={<ManufacturerForm />} />
           <Route path="/models" element={<VehicleList />} />
           <Route path="/models/new" element={<AddModel />} />
-          <Route path="automobiles" element={<AutomobileList />} />
+          <Route path="/automobiles" element={<AutomobileList />} />
           <Route path="/automobiles/new" element={<AutomobileForm />} />
 
 

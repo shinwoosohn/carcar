@@ -51,7 +51,7 @@ function AutomobileList() {
                   })}
             </tbody>
           </table>
-          <Link className="btn btn-primary" to="/automobiles/new">Add a New Automobile</Link>
+          <Link className="btn btn-primary" to="/automobiles/new/">Add a New Automobile</Link>
         </>
         )
 }
