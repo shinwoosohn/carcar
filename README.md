@@ -91,10 +91,10 @@ POST Example:
 
 Customer:
 
-    | Action        | Method        | Url   |
+| Action        | Method        | Url   |
 | ------------- |:-------------:| -----:|
-| List Customers:      | GET        | http://localhost:8090/api/customers/ |
-| Create Customer:     | POST       | http://localhost:8090/api/customers/ |
+| List Customers:  | GET        | http://localhost:8090/api/customers/ |
+| Create Customer: | POST       | http://localhost:8090/api/customers/ |
 
 GET Example:
 
