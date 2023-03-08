@@ -54,7 +54,7 @@ function SalesHistory() {
                 <select className="form-select pe-4 w-100"
                  onChange={handleEmployeeChange}
                 >
-                    <option value={employeeFilter}>Filter Sales By Employee: </option>
+                    <option value={employeeFilter} className="text-center">Filter Sales By Employee:</option>
                     <option value={''} key={'null'}>
                             All Sales Persons
                     </option>
