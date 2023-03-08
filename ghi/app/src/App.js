@@ -9,6 +9,10 @@ import AutomobileForm from './AutomobileForm';
 import AutomobileList from './AutomobileList';
 import TechnicianForm from './Service/TechnicianForm';
 import TechnicianList from './Service/TechnicianList';
+import AddSalesPerson from './salescomponents/AddSalesPerson';
+import AddCustomer from './salescomponents/AddCustomer';
+import AddSale from './salescomponents/AddSalesRecord';
+import SalesHistory from './salescomponents/SaleList';
 import AppointmentForm from './Service/AppointmentForm';
 import AppointmentList from './Service/AppointmentList';
 import ServiceHistory from './Service/ServiceHistory';
@@ -31,7 +35,10 @@ function App() {
           <Route path="/appointments" element={<AppointmentList />} />
           <Route path="/appointments/new" element={<AppointmentForm />} />
           <Route path="/services" element={<ServiceHistory />} />
-
+          <Route path="/sales/newemployee" element={<AddSalesPerson />} />
+          <Route path="/sales/newcustomer" element={<AddCustomer />} />
+          <Route path="/sales/newsale" element={<AddSale />} />
+          <Route path="/sales/saleshistory" element={<SalesHistory />} />
 
 
         </Routes>
