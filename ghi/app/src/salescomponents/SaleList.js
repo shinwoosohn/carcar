@@ -48,8 +48,6 @@ function SalesHistory() {
         }
     }, [employeeFilter, salesHistory]);
 
-    // const filteredSales = employeeFilter ? salesHistory.filter(sale => sale.seller === employeeFilter) : salesHistory;
-    // const filteredSales = salesHistory.filter(sale => sale.seller === employeeFilter)
 
     return(
         <>
