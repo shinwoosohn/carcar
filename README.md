@@ -255,11 +255,19 @@ GET Example:
                 ]
             }
 
-POST Example:
+POST Request Example:
 
             {
-            "sales_person":"John Wooster",
-            "employee_number":"123456789"
+                "sales_person":"John Wooster",
+                "employee_number":"123456789"
+            }
+
+POST Return Example:
+
+            {
+                "sales_person": "John Wooster",
+                "employee_number": "35555",
+                "id": 9
             }
 
 ### Customer:
@@ -280,12 +288,19 @@ GET Example:
             ]
         }
 
-POST Example:
+POST Request Example:
 
             {
                 "customer_name":"Nick Adams",
                 "address":"555 123 Lane, San Francisco, CA 94010",
                 "phone_number":"415-555-1212"
+            }
+
+POST Return Example:
+
+            {
+	            "customer_name": "Nick Adams",
+	            "id": 1
             }
 
 ### Sales History:
@@ -308,11 +323,20 @@ GET Example:
         ]
     }
 
-POST Example:
+POST Request Example:
 
             {
                 "buyer":"Nick Adams",
                 "seller":"John Wooster",
                 "sale_price":"5000",
                 "sold_auto_vin": "9999999"
+            }
+
+POST Return Example:
+
+            {
+	            "seller": "John Wooster",
+	            "buyer": "Nick Adams",
+	            "sale_price": "5000",
+	            "vin_number": "9999999"
             }
