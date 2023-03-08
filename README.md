@@ -58,6 +58,8 @@ The Appointment model does not have VIN as a foreign key because clients who do 
 
 
 
+
+
 ## Sales microservice
 
 Explain your models and integration with the inventory
