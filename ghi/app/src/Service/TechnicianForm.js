@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function TechnicianForm() {
+    const navigate = useNavigate();
     const [technicianName, setTechnicianName] = useState('');
     const [employeeNumber, setEmployeeNumber] = useState('');
 
@@ -23,6 +25,7 @@ function TechnicianForm() {
         if (response.ok) {
             setTechnicianName('');
             setEmployeeNumber('');
+            navigate('/technicians/');
         }
     }
 
@@ -31,7 +34,7 @@ function TechnicianForm() {
             <div className="offset-3 col-6">
                 <div className="shadow p-4 mt-4">
                 <h1>Create a new technician</h1>
-                <form onSubmit={handleSubmit} id="create-appointment-form">
+                <form onSubmit={handleSubmit} id="create-technician-form">
                     <div className="form-floating mb-3">
                         <input onChange={(e) => setTechnicianName(e.target.value)} value={technicianName} placeholder="Technician Name" required type="text" name="technician_name" id="technician_name" className="form-control"/>
                         <label htmlFor="technician_name">Technician name</label>

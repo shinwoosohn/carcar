@@ -10,7 +10,7 @@ class TechnicianListEncoder(ModelEncoder):
     model = Technician
     properties = [
         "technician_name",
-        "employee_id",
+        "employee_number",
         "id",
     ]
 
