@@ -37,7 +37,7 @@ function ServiceHistory() {
             <h1 className="text-center mb-3 mt-3">Service History</h1>
             <table className="table table-striped">
                 <thead>
-                    <tr className="text-center">
+                    <tr>
                         <th>VIP</th>
                         <th>Automobile VIN</th>
                         <th>Customer Name</th>
