@@ -52,7 +52,25 @@ function Nav() {
             </li>
           </ul>
         </div>
+
+
+      <div className="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item dropdown">
+              <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Sales
+              </a>
+              <ul className="dropdown-menu" aria-labelledby='navbarDropdownMenuLink'>
+                <li><NavLink className="dropdown-item" aria-current="page" to="/sales/newsale">New Sales Record</NavLink></li>
+                <li><NavLink className="dropdown-item" aria-current="page" to="/sales/saleshistory">View Sales History</NavLink></li>
+                <li><NavLink className="dropdown-item" aria-current="page" to="/sales/newcustomer">New Customer</NavLink></li>
+                <li><NavLink className="dropdown-item" aria-current="page" to="/sales/newemployee">New Sales Employee</NavLink></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
       </div>
+
     </nav>
   )
 }
