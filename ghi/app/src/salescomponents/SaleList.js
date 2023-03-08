@@ -51,14 +51,11 @@ function SalesHistory() {
 
     return(
         <>
-          <table className="table table-striped  pt-4 w-100 mx-auto ">
-            <thead>
-              <tr>
                 <select className="form-select pe-4 w-100"
                  onChange={handleEmployeeChange}
                 >
                     <option value={employeeFilter}>Filter Sales By Employee: </option>
-                    <option value={''} key={''}>
+                    <option value={''} key={'null'}>
                             All Sales Persons
                     </option>
 
@@ -70,7 +67,9 @@ function SalesHistory() {
                     );
                 })}
                 </select>
-              </tr>
+          <table className="table table-striped  pt-4 w-100 mx-auto ">
+            <thead>
+
 
               <tr>
                 <th>Sales Person:</th>
@@ -84,12 +83,12 @@ function SalesHistory() {
 
             {filteredSales.map(sale => {
                     return (
-                        <tr key={sale.id}>
+                        <tr key={sale.vin_number}>
                             <td>{sale.seller}</td>
                             <td>{sale.buyer}</td>
                             <td>{sale.vin_number}</td>
                             <td>${sale.sale_price}</td>
-                            </tr>
+                        </tr>
                         );
                     })}
             </tbody>
