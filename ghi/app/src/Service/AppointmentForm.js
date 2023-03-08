@@ -25,7 +25,7 @@ function AppointmentForm() {
         const data = {};
         data.vin = vin;
         data.customer_name = customerName;
-        data.date_time = dateTime;
+        data.date_time = new Date(dateTime).toISOString();
         data.reason = reason;
         data.technician_name = technician;
 
