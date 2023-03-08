@@ -54,10 +54,135 @@ The Appointment model does not have VIN as a foreign key because clients who do 
 | Action        | Method           | URL  |
 | ------------- |:-------------:| -----:|
 | List of technicians| GET | http://localhost:8080/api/technicians/ |
-| Create new technicians      | POST      |   http://localhost:8080/api/technicians/ |
+| Create new technician      | POST      |   http://localhost:8080/api/technicians/ |
 
+GET List of technicians Example:
 
+    {
+        "technicians": [
+            {
+                "technician_name": "Eddy",
+                "employee_number": "000001",
+                "id": 1
+            }
+        ]
+    }
 
+POST Create new technician Request Example:
+
+    {
+        "technician_name": "Jeff",
+        "employee_id": "000004"
+    }
+
+POST Create new technician Return Example:
+
+    {
+        "technician_name": "Jeff",
+        "employee_id": "000004",
+        "id": 4
+    }
+
+| Action        | Method           | URL  |
+| ------------- |:-------------:| -----:|
+| List of appointments | GET | http://localhost:8080/api/appointments/ |
+| Create new appointment     | POST      |   http://localhost:8080/api/technicians/ |
+| Show appointment details     | GET      |   http://localhost:8080/api/appointments/:id/ |
+| Update appointment     | PUT      |   http://localhost:8080/api/appointments/:id/ |
+| Delete appointment    | DELETE      |   http://localhost:8080/api/appointments/:id/ |
+
+GET List of appointments Example:
+
+    {
+        "appointments": [
+            {
+                "vin": "1C3CC5FB2AN120174",
+                "customer_name": "Vincent",
+                "date_time": "2023-03-20T12:30:00+00:00",
+                "reason": "Oil Change",
+                "vip": false,
+                "finished": false,
+                "technician_name": {
+                    "technician_name": "Eddy",
+                    "employee_number": "000001",
+                    "id": 1
+                },
+                "id": 1
+            },
+        ]
+    }
+
+GET Show appointment details Example:
+
+    {
+        "vin": "1C3CC5FB2AN120174",
+        "customer_name": "Kevin",
+        "date_time": "2023-03-20T12:30:00+00:00",
+        "reason": "Oil Change",
+        "vip": false,
+        "finished": false,
+        "technician_name": {
+            "technician_name": "Eddy",
+            "employee_id": "000001"
+        },
+        "id": 1
+    }
+
+POST Create new appointment Request Example:
+
+    {
+        "vin": "2FMDK4KC4CBA27842",
+        "customer_name": "John",
+        "date_time": "2023-11-30 03:30",
+        "reason": "Refill Blinker Fluid",
+        "technician_name": "Derek"
+    }
+
+POST Create new appointment Return Example:
+
+    {
+        "vin": "2FMDK4KC4CBA27842",
+        "customer_name": "John",
+        "date_time": "2023-11-30 03:30",
+        "reason": "Refill Blinker Fluid",
+        "vip": true,
+        "finished": false,
+        "technician_name": {
+            "technician_name": "Derek",
+            "employee_number": "000003",
+            "id": 3
+        },
+        "id": 16
+    }
+
+PUT Update appointment details Request Example:
+
+    {
+        "customer_name": "Vincent",
+        "date_time": "2023-03-30 12:30"
+    }
+
+PUT Update appointment details Return Example:
+
+    {
+        "vin": "1C3CC5FB2AN120174",
+        "customer_name": "Vincent",
+        "date_time": "2023-03-30T12:30:00+00:00",
+        "reason": "Oil Change",
+        "vip": false,
+        "finished": false,
+        "technician_name": {
+            "technician_name": "Eddy",
+            "employee_id": "000001"
+        },
+        "id": 1
+    }
+
+DELETE Delete appointment Example:
+
+    {
+        "deleted": true
+    }
 
 
 ## Sales microservice
