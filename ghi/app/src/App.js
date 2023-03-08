@@ -9,6 +9,7 @@ import AutomobileForm from './AutomobileForm';
 import AutomobileList from './AutomobileList';
 import TechnicianForm from './TechnicianForm';
 import TechnicianList from './TechnicianList';
+import AddSalesPerson from './salescomponents/AddSalesPerson';
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
           <Route path="/technicians" element={<TechnicianList />} />
           <Route path="/technicians/new" element={<TechnicianForm />} />
 
-
+          <Route path="/sales/newemployee" element={<AddSalesPerson />} />
 
 
         </Routes>
