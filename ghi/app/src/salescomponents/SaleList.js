@@ -5,34 +5,59 @@ function SalesHistory() {
 
 
 
-    const [autos, setAutos] = useState([]);
+    const [salesHistory, setSalesHistory] = useState([]);
+    const [salesPeople, setSalesPeople] = useState([]);
 
-    const fetchAutomobiles = async () => {
-        const response = await fetch('http://localhost:8100/api/automobiles/');
+    const [employeeFilter, setEmployeeFilter] = useState('');
+    const handleEmployeeChange = (event) => {
+        const value = event.target.value;
+        setEmployeeFilter(value);
 
-        if (response.ok){
-          let data= await response.json();
-          setAutos(data.autos)
+    }
 
+    const fetchData = async () => {
+        const historyResponse = await fetch('http://localhost:8090/api/sales_history/');
+        const salesPersonResponse = await fetch('http://localhost:8090/api/sales_persons/');
+
+        if (historyResponse.ok){
+          let data= await historyResponse.json();
+          setSalesHistory(data.sales_history)
         }else{
-          console.error(response);
+          console.error(historyResponse);
         };
-      };
+
+        if (salesPersonResponse.ok){
+            let data= await salesPersonResponse.json();
+            setSalesPeople(data.sales_persons)
+        }else{
+            console.error(salesPersonResponse);
+          };
+    };
 
     useEffect(  () =>  {
-        fetchAutomobiles()
+        fetchData()
 
     }, [] );
 
+    // const filteredSales = employeeFilter ? salesHistory.filter(sale => sale.seller === employeeFilter) : salesHistory;
+    // const filteredSales = salesHistory.filter(sale => sale.seller === employeeFilter)
+
     return(
         <>
-          <table className="table table-striped d-grid pt-4 w-100 mx-auto ">
+          <table className="table table-striped  pt-4 w-100 mx-auto ">
             <thead>
               <tr>
-                <select className="form-select pe-4 w-100" aria-label="Default select example">
-                    <option selected>Filter Sales By Employee: </option>
-                    <option value=""/>
-                    <option value=""/>
+                <select className="form-select pe-4 w-100"
+                 onChange={handleEmployeeChange}
+                >
+                    <option value={employeeFilter}>Filter Sales By Employee: </option>
+                    { salesPeople.map (sale => {
+                    return (
+                        <option value={sale.sales_person} key={sale.sales_person}>
+                            {sale.sales_person}
+                        </option>
+                    );
+                })}
                 </select>
               </tr>
 
@@ -44,21 +69,22 @@ function SalesHistory() {
               </tr>
             </thead>
             <tbody>
-            { autos.map( auto => {
+
+
+            { filteredSales.map( sale => {
               return (
 
-                      <tr key={auto.vin}>
-                        <td>{ auto.vin }</td>
-                        <td>{ auto.color }</td>
-                        <td>{ auto.year }</td>
-                        <td>{ auto.model.name }</td>
-                        <td>{ auto.model.manufacturer.name }</td>
+                      <tr key={sale.seller}>
+                        <td>{ sale.seller }</td>
+                        <td>{ sale.buyer }</td>
+                        <td>{ sale.vin_number }</td>
+                        <td>${ sale.sale_price }</td>
                       </tr>
                     );
                   })}
             </tbody>
           </table>
-          <Link className="btn btn-primary" to="/automobiles/new/">Add a New Automobile</Link>
+          <Link className="btn btn-primary" to="/sales/newsale">Add a Sales Record</Link>
         </>
         )
 }
