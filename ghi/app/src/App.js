@@ -12,6 +12,7 @@ import TechnicianList from './TechnicianList';
 import AddSalesPerson from './salescomponents/AddSalesPerson';
 import AddCustomer from './salescomponents/AddCustomer';
 import AddSale from './salescomponents/AddSalesRecord';
+import SalesHistory from './salescomponents/SaleList';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="/sales/newemployee" element={<AddSalesPerson />} />
           <Route path="/sales/newcustomer" element={<AddCustomer />} />
           <Route path="/sales/newsale" element={<AddSale />} />
+          <Route path="/sales/saleshistory" element={<SalesHistory />} />
 
 
         </Routes>
