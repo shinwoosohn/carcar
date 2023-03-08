@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 
 function AppointmentList() {
     const [appointments, setAppointments] = useState([]);
-    const [complete, setComplete] = useState(false);
-    const [cancel, setCancel] = useState(false);
+    const [, setComplete] = useState(false);
+    const [, setCancel] = useState(false);
 
     const fetchAppointments = async () => {
         const response = await fetch('http://localhost:8080/api/appointments/');

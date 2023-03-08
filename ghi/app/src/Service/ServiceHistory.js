@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 function ServiceHistory() {
     const [appointments, setAppointments] = useState([]);
-    const [vinSearch, setVin] = useState('');
+    const [searchVin, setSearchVin] = useState('');
 
     const fetchAppointments = async () => {
         const response = await fetch('http://localhost:8080/api/appointments/');
@@ -14,11 +14,11 @@ function ServiceHistory() {
     }
 
     const handleSearch = (event) => {
-        if (vinSearch.length !== 0) {
+        if (searchVin.length !== 0) {
             event.preventDefault();
         }
         const filteredAppointments = appointments.filter((appointment) =>
-            appointment.vin.includes(vinSearch)
+            appointment.vin.includes(searchVin)
         );
         setAppointments(filteredAppointments)
         }
@@ -31,8 +31,8 @@ function ServiceHistory() {
     return (
         <>
             <form onSubmit={handleSearch} className="input-group mb-3 mt-4">
-                <input onChange={(e) => setVin(e.target.value)} type="search" className="form-control rounded" placeholder="Search by VIN" aria-label="Search" aria-describedby="search-addon" />
-                <button type="submit" className="btn btn-outline-primary">search</button>
+                <input onChange={(e) => setSearchVin(e.target.value)} type="search" className="form-control rounded" placeholder="Search by VIN" aria-label="Search" aria-describedby="search-addon" />
+                <button type="submit" className="btn btn-outline-primary">Search</button>
             </form>
             <h1 className="text-center mb-3 mt-3">Service History</h1>
             <table className="table table-striped">
@@ -61,13 +61,13 @@ function ServiceHistory() {
                             <td>{ new Date(appointment.date_time).toLocaleDateString("en-US") }</td>
                             <td>{ new Date(appointment.date_time).toLocaleTimeString([], {
                                 hour: "2-digit",
-                                minute: "2-digit",
+                                minute: "2-digit"
                             }) }</td>
                             <td>{ appointment.reason }</td>
                             <td>{ appointment.technician_name.technician_name }</td>
                             { appointment.finished ?
                                 <td>Completed</td>:
-                                <td></td>
+                                <td>Pending</td>
                             }
                         </tr>
                         );
