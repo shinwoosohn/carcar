@@ -84,7 +84,7 @@ POST Create new technician Return Example:
     }
 
 | Action        | Method           | URL  |
-| ------------- |:-------------:| :-----:|
+| ------------- |:-------------:| :-----|
 | List of appointments | GET | http://localhost:8080/api/appointments/ |
 | Create new appointment     | POST      | http://localhost:8080/api/technicians/ |
 | Show appointment details     | GET      | http://localhost:8080/api/appointments/:id/ |
