@@ -1,22 +1,6 @@
 import React, { useEffect, useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
 
 function AddSalesPerson() {
-    // const navigate = useNavigate();
-
-    // useEffect(  () =>  {
-    //     fetchData()
-
-    // }, [] );
-
-
-    // const [manufacturers, setManufacturers] = useState([]);
-
-    // const [manufacturer, setManufacturer] = useState('');
-    // const handleManufacturerChange = (event) => {
-    //     const value = event.target.value;
-    //     setManufacturer(value);
-    // }
 
     const [name, setName] = useState('');
     const handleNameChange = (event) => {
@@ -38,26 +22,11 @@ function AddSalesPerson() {
         setSuccess(value);
     }
 
-
-
-    // const fetchData = async () => {
-    //     const url = 'http://localhost:8100/api/manufacturers/';
-
-    //     const response = await fetch(url);
-
-    //     if (response.ok) {
-    //         const data = await response.json();
-    //         setManufacturers(data.manufacturers)
-    //     }
-    // }
-
-
-
     const handleSubmit = async (event) => {
         event.preventDefault();
 
         const data = {}
-        data.name = name;
+        data.sales_person = name;
         data.employee_number = employeeNumber;
 
         const addEmployeeUrl = 'http://localhost:8090/api/sales_persons/';
@@ -85,7 +54,7 @@ function AddSalesPerson() {
         <div className="offset-3 col-6">
           <div className="shadow p-4 mt-4">
             <h1>Add a Sales Employee:</h1>
-            <form onSubmit={handleSubmit} id="create-model-form">
+            <form onSubmit={handleSubmit} id="create-sales-person-form">
               <div className="form-floating mb-3">
                 <input  onChange={handleNameChange}
                         placeholder="Name"
@@ -107,11 +76,15 @@ function AddSalesPerson() {
                 <label htmlFor="employeeNumber">Employee Number:</label>
               </div>
 
-              <button className="btn btn-primary">Add Employee</button>
+              <button className="btn btn-primary mx-auto d-grid">Add Employee</button>
 
             </form>
-            {success && <button type="button" class="btn btn-success">{newEmployee.body.sales_person} Added</button>}
+
           </div>
+
+          <div className="row d-grid pt-4 w-50 mx-auto ">
+                {success && <button type="button" className="btn btn-success">Employee Added</button>}
+            </div>
         </div>
         </div>
 
