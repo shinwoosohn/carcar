@@ -33,7 +33,33 @@ The Sales microservice will now be available at http://localhost:8090/. The Serv
 
 For RESTful API entities and endpoints, please reference the respective microservices below.
 
-React front-end application will now be available at http://localhost:3000/.
+React front-end application will now be available at http://localhost:3000/. This will take you to the Home Page. Within the Home Page will be a navigation bar at the top to access each feature.
+
+## Inventory Microservice
+
+| Action        | Method        | Url   |
+| ------------- |:-------------:| :-----|
+| List of manufacturers      | GET        | http://localhost:8100/api/manufacturers/ |
+| Show manufacturer details     | GET       | http://localhost:8100/api/manufacturers/:id/ |
+| Create manufacturer     | POST       | http://localhost:8100/api/manufacturers/ |
+| Update manufacturer    | PUT       | http://localhost:8100/api/manufacturers/:id/ |
+| Delete manufacturer     | DELETE       | http://localhost:8100/api/manufacturers/:id/ |
+
+| Action        | Method        | Url   |
+| ------------- |:-------------:| :-----|
+| List of vehicle models      | GET        | http://localhost:8100/api/models/ |
+| Show vehicle model details     | GET       | http://localhost:8100/api/models/:id/ |
+| Create vehicle model     | POST       | http://localhost:8100/api/models/ |
+| Update vehicle model    | PUT       | http://localhost:8100/api/models/:id/ |
+| Delete vehicle model     | DELETE       | http://localhost:8100/api/models/:id/ |
+
+| Action        | Method        | Url   |
+| ------------- |:-------------:| :-----|
+| List of automobiles      | GET        | http://localhost:8100/api/automobiles/ |
+| Show automobile details     | GET       | http://localhost:8100/api/automobiles/:vin/ |
+| Create automobile     | POST       | http://localhost:8100/api/automobiles/ |
+| Update automobile    | PUT       | http://localhost:8100/api/automobiles/:vin/ |
+| Delete automobile     | DELETE       | http://localhost:8100/api/automobiles/:vin/ |
 
 
 ## Service Microservice
@@ -228,17 +254,6 @@ The following models and associated parameters are used:
 * AutomobileVO
     * vin_number : Unique Vin of Vehicle
     * available_for_sale : Boolean value indicating wether available to be sold
-
-
-
-To run the Sales microservice as part of the Project Beta package from a freshly cloned repository, navigate to the project-beta project folder and execute the following commands:
-
-docker volume create beta-data
-docker-compose build
-docker-compose up
-
-You will now see sales-api and sales-poller containers running in Docker. The Sales
-microservice will now be available at http://localhost:8090/. Admin access to view or update sales database is available via django web interface at http://localhost:8090/admin however a user must be configured via command line first.
 
 There are RESTful endpoints for the following entities:
 
