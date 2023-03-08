@@ -54,7 +54,7 @@ function AppointmentList() {
 
     useEffect(() => {
         fetchAppointments();
-    })
+    }, []);
 
     return (
         <>
@@ -81,6 +81,7 @@ function AppointmentList() {
                                 {appointment.vip === true &&
                                 <td>VIP</td>
                                 }
+                                <td>{ appointment.vin }</td>
                                 <td>{ appointment.customer_name }</td>
                                 <td>{ new Date(appointment.date_time).toLocaleDateString("en-US") }</td>
                                 <td>{ new Date(appointment.date_time).toLocaleTimeString([], {
