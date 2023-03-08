@@ -84,12 +84,12 @@ POST Create new technician Return Example:
     }
 
 | Action        | Method           | URL  |
-| ------------- |:-------------:| -----:|
+| ------------- |:-------------:| :-----:|
 | List of appointments | GET | http://localhost:8080/api/appointments/ |
-| Create new appointment     | POST      |   http://localhost:8080/api/technicians/ |
-| Show appointment details     | GET      |   http://localhost:8080/api/appointments/:id/ |
-| Update appointment     | PUT      |   http://localhost:8080/api/appointments/:id/ |
-| Delete appointment    | DELETE      |   http://localhost:8080/api/appointments/:id/ |
+| Create new appointment     | POST      | http://localhost:8080/api/technicians/ |
+| Show appointment details     | GET      | http://localhost:8080/api/appointments/:id/ |
+| Update appointment     | PUT      | http://localhost:8080/api/appointments/:id/ |
+| Delete appointment    | DELETE      | http://localhost:8080/api/appointments/:id/ |
 
 GET List of appointments Example:
 
