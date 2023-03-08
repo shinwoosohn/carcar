@@ -70,10 +70,6 @@ Sales Person:
     | List Sales Persons:      | GET        | http://localhost:8090/api/sales_persons/ |
     | Create Sales Person:     | POST       | http://localhost:8090/api/sales_persons/ |
 
-        Action:            Method:               Url:
-
-
-
     GET Example:
 
                 {
@@ -95,9 +91,10 @@ Sales Person:
 
 Customer:
 
-        Action:            Method:               Url:
-    List Customers:	        GET	    http://localhost:8090/api/customers/
-    Create Customer:	    POST	http://localhost:8090/api/customers/
+        | Action        | Method        | Url   |
+    | ------------- |:-------------:| -----:|
+    | List Customers:      | GET        | http://localhost:8090/api/customers/ |
+    | Create Customer:     | POST       | http://localhost:8090/api/customers/ |
 
     GET Example:
 
@@ -120,9 +117,10 @@ Customer:
 
 Sales History:
 
-        Action:                Method:               Url:
-    List Sales History:	        GET	    http://localhost:8090/api/sales_history/
-    Create Sales History:	    POST	http://localhost:8090/api/sales_history/
+    | Action        | Method        | Url   |
+    | ------------- |:-------------:| -----:|
+    | List Sales History:      | GET        | http://localhost:8090/api/sales_history/ |
+    | Create Sales History:     | POST       | http://localhost:8090/api/sales_history/ |
 
     GET Example:
 
@@ -145,11 +143,3 @@ Sales History:
                     "sale_price":"5000",
                     "sold_auto_vin": "9999999"
                 }
-
-
-
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
