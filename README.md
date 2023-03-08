@@ -29,20 +29,23 @@ The following documentation describes the available functionality in the Invento
 The Service microservice provides a RESTful API interface for viewing and creating Appointments, Technicians, and Service History. A polling service makes regular requests to the Inventory API to update AutomobileVO value objects which the service microservice uses to represent vehicles that were purchased from the dealership or not.
 
 The following models and associated parameters are used:
-    • Appointment
-        - vin : Automobile VIN
-        - customer_name : Customer Name
-        - date_time : Date & Time of Appointment
-        - reason : Reason for Appointment
-        - vip : Boolean value indicating whether vehicle was purchased from dealership or not
-        - finished : Boolean value indicating status of Appointment (Pending/Completed)
-        - technician_name : Foreign key to show Technician Name
-    • Technician
-        - technician_name : Technician Name
-        - employee_number : Employee Number
-    • AutomobileVO
-        - vin : Unique Vin of Vehicle
-        - import_href : The inventory url path for each automobileVO
+
+    * Appointment
+        * vin : Automobile VIN
+        * customer_name : Customer Name
+        * date_time : Date & Time of Appointment
+        * reason : Reason for Appointment
+        * vip : Boolean value indicating whether vehicle was purchased from dealership or not
+        * finished : Boolean value indicating status of Appointment (Pending/Completed)
+        * technician_name : Foreign key to show Technician Name
+
+    * Technician
+        * technician_name : Technician Name
+        * employee_number : Employee Number
+
+    * AutomobileVO
+        * vin : Unique Vin of Vehicle
+        * import_href : The inventory url path for each automobileVO
 
 The Appointment model does not have VIN as a foreign key because clients who do not own a vehicle from the inventory should also be able to make an appointment. The Technician field is a foreign key because many appointments can have a single technician.
 
@@ -51,8 +54,7 @@ The Appointment model does not have VIN as a foreign key because clients who do 
 | Action        | Method           | URL  |
 | ------------- |:-------------:| -----:|
 | List of technicians| GET | http://localhost:8080/api/technicians/ |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+| Create new technicians      | POST      |   http://localhost:8080/api/technicians/ |
 
 
 
