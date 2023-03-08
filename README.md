@@ -25,24 +25,24 @@ When the sale of a vehicle is recorded, the available_for_sale boolean will be s
 
 The following models and associated parameters are used:
 
-• SalesPerson
-    - sales_person : Employee Name
-    - employee_number : Employee Number
+* SalesPerson
+    * sales_person : Employee Name
+    * employee_number : Employee Number
 
-• Customer
-    - customer_name : Customer Name
-    - address : Customer Address
-    - phone_number : Customer Phone Number
+* Customer
+    * customer_name : Customer Name
+    * address : Customer Address
+    * phone_number : Customer Phone Number
 
-• SalesHistory
-    - sale_price : Sale Price as decimal value
-    - seller : Name of Sales Person
-    - buyer : Name of Customer
-    - sold_auto_vin : Vin of sold vehicle via Foreign Key with AutomobileVO
+* SalesHistory
+    * sale_price : Sale Price as decimal value
+    * seller : Name of Sales Person
+    * buyer : Name of Customer
+    * sold_auto_vin : Vin of sold vehicle via Foreign Key with AutomobileVO
 
-• AutomobileVO
-    - vin_number : Unique Vin of Vehicle
-    - available_for_sale : Boolean value indicating wether available to be sold
+* AutomobileVO
+    * vin_number : Unique Vin of Vehicle
+    * available_for_sale : Boolean value indicating wether available to be sold
 
 
 
@@ -63,7 +63,7 @@ Sales History: List or Create Sales Records
 
 The following documentation describes the available functionality in the Sales API:
 
-Sales Person:
+### Sales Person:
 
 | Action        | Method        | Url   |
 | ------------- |:-------------:| -----:|
@@ -89,7 +89,7 @@ POST Example:
             "employee_number":"123456789"
             }
 
-Customer:
+### Customer:
 
 | Action        | Method        | Url   |
 | ------------- |:-------------:| -----:|
@@ -115,7 +115,7 @@ POST Example:
                 "phone_number":"415-555-1212"
             }
 
-Sales History:
+### Sales History:
 
 | Action        | Method        | Url   |
 | ------------- |:-------------:| -----:|
