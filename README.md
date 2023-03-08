@@ -7,21 +7,33 @@ Team:
 
 ## Design
 
+![A diagram of our car dealership management system](./project_beta_diagram.png)
+
 CarCar is an application used for automobile dealership management.
 
-To run the Service microservice as part of the Project Beta package from a freshly cloned repository, navigate to the project-beta project folder and execute the following commands:
+To run the Project Beta package from a freshly cloned repository, navigate to the project-beta project folder and execute the following commands:
 
-docker volume create beta-data
-docker-compose build
-docker-compose up
+    docker volume create beta-data
 
-You will now see sales-api and sales-poller containers running in Docker. The Sales
-microservice will now be available at http://localhost:8090/. Admin access to view or update sales database is available via django web interface at http://localhost:8090/admin however a user must be configured via command line first.
-There are RESTful endpoints for the following entities:
-Sales: the company that manufactures the automobile
-VehicleModel: the model of a vehicle created by the manufacturer
-Automobile: the actual automobile of a specific vehicle model
-The following documentation describes the available functionality in the Inventory API.
+    docker-compose build
+
+    docker-compose up
+
+You will now see seven containers running in Docker:
+
+* service-poller-1
+* service-api-1
+* sales-poller-1
+* sales-api-1
+* inventory-api-1
+* database-1
+* react-1
+
+The Sales microservice will now be available at http://localhost:8090/. The Service microservice will now be available at http://localhost:8080/. Admin access to view or update sales database is available via django web interface at http://localhost:8090/admin and http://localhost:8080/admin, however a user must be configured via command line first.
+
+For RESTful API entities and endpoints, please reference the respective microservices below.
+
+React front-end application will now be available at http://localhost:3000/.
 
 
 ## Service Microservice
