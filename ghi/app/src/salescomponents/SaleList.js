@@ -7,8 +7,9 @@ function SalesHistory() {
 
     const [salesHistory, setSalesHistory] = useState([]);
     const [salesPeople, setSalesPeople] = useState([]);
-
+    const [filteredSales, setFilteredSales] = useState([]);
     const [employeeFilter, setEmployeeFilter] = useState('');
+
     const handleEmployeeChange = (event) => {
         const value = event.target.value;
         setEmployeeFilter(value);
@@ -22,6 +23,7 @@ function SalesHistory() {
         if (historyResponse.ok){
           let data= await historyResponse.json();
           setSalesHistory(data.sales_history)
+          setFilteredSales(data.sales_history);
         }else{
           console.error(historyResponse);
         };
@@ -38,6 +40,13 @@ function SalesHistory() {
         fetchData()
 
     }, [] );
+    useEffect(() => {
+        if (employeeFilter) {
+            setFilteredSales(salesHistory.filter(sale => sale.seller === employeeFilter));
+        } else {
+            setFilteredSales(salesHistory);
+        }
+    }, [employeeFilter, salesHistory]);
 
     // const filteredSales = employeeFilter ? salesHistory.filter(sale => sale.seller === employeeFilter) : salesHistory;
     // const filteredSales = salesHistory.filter(sale => sale.seller === employeeFilter)
@@ -51,9 +60,13 @@ function SalesHistory() {
                  onChange={handleEmployeeChange}
                 >
                     <option value={employeeFilter}>Filter Sales By Employee: </option>
+                    <option value={''} key={''}>
+                            All Sales Persons
+                    </option>
+
                     { salesPeople.map (sale => {
                     return (
-                        <option value={sale.sales_person} key={sale.sales_person}>
+                        <option value={sale.sales_person} key={sale.id}>
                             {sale.sales_person}
                         </option>
                     );
@@ -71,17 +84,16 @@ function SalesHistory() {
             <tbody>
 
 
-            { filteredSales.map( sale => {
-              return (
-
-                      <tr key={sale.seller}>
-                        <td>{ sale.seller }</td>
-                        <td>{ sale.buyer }</td>
-                        <td>{ sale.vin_number }</td>
-                        <td>${ sale.sale_price }</td>
-                      </tr>
-                    );
-                  })}
+            {filteredSales.map(sale => {
+                    return (
+                        <tr key={sale.id}>
+                            <td>{sale.seller}</td>
+                            <td>{sale.buyer}</td>
+                            <td>{sale.vin_number}</td>
+                            <td>${sale.sale_price}</td>
+                            </tr>
+                        );
+                    })}
             </tbody>
           </table>
           <Link className="btn btn-primary" to="/sales/newsale">Add a Sales Record</Link>
