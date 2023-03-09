@@ -91,7 +91,7 @@ function AddSale(props) {
           const newSale = await response.json();
 
           setSeller('');
-          navigate('/sales/history');
+          navigate('/sales/saleshistory');
         }
 
     }
