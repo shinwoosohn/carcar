@@ -16,7 +16,11 @@ function AppointmentList() {
     const cancelAppointment = async (appointment) => {
         const url = `http://localhost:8080/api/appointments/${appointment.id}/`
         const fetchConfig = {
-            method: "delete",
+            method: "put",
+            body: JSON.stringify({ cancelled: true }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
         };
 
         const response = await fetch(url, fetchConfig);
@@ -72,14 +76,14 @@ function AppointmentList() {
                 </thead>
                 <tbody>
                     {appointments.map(appointment => {
-                        if (appointment.finished === false)
+                        if (!appointment.finished && !appointment.cancelled)
                         return (
                             <tr key={appointment.id}>
                                 {appointment.vip === false &&
                                 <td></td>
                                 }
                                 {appointment.vip === true &&
-                                <td>VIP</td>
+                                <td className="bg-warning text-white">VIP</td>
                                 }
                                 <td>{ appointment.vin }</td>
                                 <td>{ appointment.customer_name }</td>

@@ -53,7 +53,7 @@ function ServiceHistory() {
                         return (
                         <tr key={appointment.id}>
                             {  appointment.vip ?
-                                <td>VIP</td>:
+                                <td className="bg-warning text-white">VIP</td>:
                                 <td></td>
                             }
                             <td>{ appointment.vin }</td>
@@ -66,7 +66,9 @@ function ServiceHistory() {
                             <td>{ appointment.reason }</td>
                             <td>{ appointment.technician_name.technician_name }</td>
                             { appointment.finished ?
-                                <td>Completed</td>:
+                                <td className="bg-success text-white">Completed</td>:
+                                appointment.cancelled ?
+                                <td className="bg-danger text-white">Cancelled</td>:
                                 <td>Pending</td>
                             }
                         </tr>

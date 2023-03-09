@@ -295,6 +295,7 @@ GET List of appointments Example:
                 "reason": "Oil Change",
                 "vip": false,
                 "finished": false,
+                "cancelled": false,
                 "technician_name": {
                     "technician_name": "Eddy",
                     "employee_number": "000001",
@@ -314,6 +315,7 @@ GET Show appointment details Example:
         "reason": "Oil Change",
         "vip": false,
         "finished": false,
+        "cancelled": false,
         "technician_name": {
             "technician_name": "Eddy",
             "employee_id": "000001"
@@ -340,6 +342,7 @@ POST Create new appointment Return Example:
         "reason": "Refill Blinker Fluid",
         "vip": true,
         "finished": false,
+        "cancelled": false,
         "technician_name": {
             "technician_name": "Derek",
             "employee_number": "000003",
@@ -364,6 +367,7 @@ PUT Update appointment details Return Example:
         "reason": "Oil Change",
         "vip": false,
         "finished": false,
+        "cancelled": false,
         "technician_name": {
             "technician_name": "Eddy",
             "employee_id": "000001"

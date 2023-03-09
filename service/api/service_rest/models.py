@@ -34,6 +34,7 @@ class Appointment(models.Model):
     reason = models.CharField(max_length=200, null=True)
     vip = models.BooleanField(default=False)
     finished = models.BooleanField(default=False)
+    cancelled = models.BooleanField(default=False)
 
     technician_name = models.ForeignKey(
         Technician,

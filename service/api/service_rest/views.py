@@ -31,6 +31,7 @@ class AppointmentEncoder(ModelEncoder):
         "reason",
         "vip",
         "finished",
+        "cancelled",
         "technician_name",
         "id",
     ]
