@@ -20,9 +20,6 @@ def get_automobiles():
         AutomobileVO.objects.update_or_create(
             vin_number=autos["vin"],
         )
-        print("Automobile Added:  " + autos["vin"])
-
-
 
 def poll():
     while True:
