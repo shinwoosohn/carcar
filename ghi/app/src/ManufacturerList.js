@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function ManufacturerList() {
+
     const [manufacturers, setManufacturers] = useState([]);
+
     const fetchManufacturers = async () => {
         const response = await fetch('http://localhost:8100/api/manufacturers/');
 
@@ -16,7 +18,7 @@ function ManufacturerList() {
 
     useEffect(() => {
         fetchManufacturers();
-    })
+    },[])
 
     return (
         <>
@@ -35,10 +37,11 @@ function ManufacturerList() {
                         );
                     })}
                 </tbody>
-                <div className="d-grid gap-2 d-sm-flex justify-content-sm-left">
-                    <Link to="/manufacturers/new" className="btn btn-primary">Create a manufacturer</Link>
-                </div>
+
             </table>
+            <div className="d-grid gap-2 d-sm-flex justify-content-sm-left">
+            <Link to="/manufacturers/new" className="btn btn-primary">Create a manufacturer</Link>
+            </div>
         </>
     );
 }
