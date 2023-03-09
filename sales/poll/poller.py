@@ -20,13 +20,10 @@ def get_automobiles():
         AutomobileVO.objects.update_or_create(
             vin_number=autos["vin"],
         )
-        print("Automobile Added:  " + autos["vin"])
-
-
 
 def poll():
     while True:
-        print('Sales poller polling for data')
+        print(' *** Sales Poller Polling *** ')
         try:
             get_automobiles()
         except Exception as e:

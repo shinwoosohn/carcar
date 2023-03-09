@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 
 function SalesHistory() {
 
-
-
     const [salesHistory, setSalesHistory] = useState([]);
     const [salesPeople, setSalesPeople] = useState([]);
     const [filteredSales, setFilteredSales] = useState([]);
@@ -40,6 +38,7 @@ function SalesHistory() {
         fetchData()
 
     }, [] );
+
     useEffect(() => {
         if (employeeFilter) {
             setFilteredSales(salesHistory.filter(sale => sale.seller === employeeFilter));

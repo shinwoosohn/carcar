@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
-import json
 from .models import SalesPerson, Customer, SalesHistory, AutomobileVO
 from common.json import ModelEncoder
+import json
 
 
 class SalesPersonEncoder(ModelEncoder):
