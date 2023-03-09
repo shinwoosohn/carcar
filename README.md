@@ -37,6 +37,11 @@ React front-end application will now be available at http://localhost:3000/. Thi
 
 ## Inventory Microservice
 
+The Inventory microservice provides a RESTful API interface for viewing and creating Manufacturers, Vehicles and Automobiles.
+
+
+### Manufacturers:
+
 | Action        | Method        | Url   |
 | ------------- |:-------------:| :-----|
 | List of manufacturers      | GET        | http://localhost:8100/api/manufacturers/ |
@@ -44,6 +49,41 @@ React front-end application will now be available at http://localhost:3000/. Thi
 | Create manufacturer     | POST       | http://localhost:8100/api/manufacturers/ |
 | Update manufacturer    | PUT       | http://localhost:8100/api/manufacturers/:id/ |
 | Delete manufacturer     | DELETE       | http://localhost:8100/api/manufacturers/:id/ |
+
+GET List example:
+
+                {
+                "manufacturers": [
+                    {
+                    "href": "/api/manufacturers/1/",
+                    "id": 1,
+                    "name": "Daimler-Chrysler"
+                    }
+                ]
+                }
+
+GET Detail, POST Response & Update Response example:
+
+                {
+                "href": "/api/manufacturers/1/",
+                "id": 1,
+                "name": "Chrysler"
+                }
+
+POST Request and Update Request example:
+
+                    {
+                    "name": "Chrysler"
+                    }
+
+DELETE example:
+
+                    {
+                        "id": null,
+                        "name": "Chevy"
+                    }
+
+## Vehicle Models:
 
 | Action        | Method        | Url   |
 | ------------- |:-------------:| :-----|
@@ -53,6 +93,55 @@ React front-end application will now be available at http://localhost:3000/. Thi
 | Update vehicle model    | PUT       | http://localhost:8100/api/models/:id/ |
 | Delete vehicle model     | DELETE       | http://localhost:8100/api/models/:id/ |
 
+GET List example:
+
+                {
+                "models": [
+                    {
+                    "href": "/api/models/1/",
+                    "id": 1,
+                    "name": "Sebring",
+                    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Chrysler_Sebring_front_20090302.jpg/320px-Chrysler_Sebring_front_20090302.jpg",
+                    "manufacturer": {
+                        "href": "/api/manufacturers/1/",
+                        "id": 1,
+                        "name": "Daimler-Chrysler"
+                    }
+                    }
+                ]
+                }
+
+GET Detail, POST Response & Update Response example:
+
+                {
+                "href": "/api/manufacturers/1/",
+                "id": 1,
+                "name": "Chrysler"
+                }
+
+POST Request and Update Request example:
+
+                    {
+                    "name": "Sebring",
+                    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Chrysler_Sebring_front_20090302.jpg/320px-Chrysler_Sebring_front_20090302.jpg",
+                    "manufacturer_id": 1
+                    }
+
+DELETE example:
+
+                   {
+                        "id": null,
+                        "name": "Camry",
+                        "picture_url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Toyota_Tundra_SR5_Double_Cab_--_12-26-2009.jpg",
+                        "manufacturer": {
+                            "href": "/api/manufacturers/1/",
+                            "id": 1,
+                            "name": "Toyota"
+                        }
+                    }
+
+### Automobiles:
+
 | Action        | Method        | Url   |
 | ------------- |:-------------:| :-----|
 | List of automobiles      | GET        | http://localhost:8100/api/automobiles/ |
@@ -60,6 +149,72 @@ React front-end application will now be available at http://localhost:3000/. Thi
 | Create automobile     | POST       | http://localhost:8100/api/automobiles/ |
 | Update automobile    | PUT       | http://localhost:8100/api/automobiles/:vin/ |
 | Delete automobile     | DELETE       | http://localhost:8100/api/automobiles/:vin/ |
+
+GET List example:
+
+                {
+                "autos": [
+                    {
+                    "href": "/api/automobiles/1C3CC5FB2AN120174/",
+                    "id": 1,
+                    "color": "yellow",
+                    "year": 2013,
+                    "vin": "1C3CC5FB2AN120174",
+                    "model": {
+                        "href": "/api/models/1/",
+                        "id": 1,
+                        "name": "Sebring",
+                        "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Chrysler_Sebring_front_20090302.jpg/320px-Chrysler_Sebring_front_20090302.jpg",
+                        "manufacturer": {
+                        "href": "/api/manufacturers/1/",
+                        "id": 1,
+                        "name": "Daimler-Chrysler"
+                        }
+                    }
+                    }
+                ]
+                }
+
+GET Detail, POST Response & Update Response example:
+
+                                                    {
+                                    "href": "/api/automobiles/1C3CC5FB2AN120174/",
+                                    "id": 1,
+                                    "color": "yellow",
+                                    "year": 2013,
+                                    "vin": "1C3CC5FB2AN120174",
+                                    "model": {
+                                        "href": "/api/models/1/",
+                                        "id": 1,
+                                        "name": "Sebring",
+                                        "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Chrysler_Sebring_front_20090302.jpg/320px-Chrysler_Sebring_front_20090302.jpg",
+                                        "manufacturer": {
+                                        "href": "/api/manufacturers/1/",
+                                        "id": 1,
+                                        "name": "Daimler-Chrysler"
+                                        }
+                                    }
+                                    }
+
+POST Request and Update Request example:
+
+                                    {
+                                    "color": "red",
+                                    "year": 2012
+                                    }
+
+DELETE example:
+
+                   {
+                        "id": null,
+                        "name": "Camry",
+                        "picture_url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Toyota_Tundra_SR5_Double_Cab_--_12-26-2009.jpg",
+                        "manufacturer": {
+                            "href": "/api/manufacturers/1/",
+                            "id": 1,
+                            "name": "Toyota"
+                        }
+                    }
 
 
 ## Service Microservice
@@ -225,9 +380,6 @@ DELETE Delete appointment Example:
 
 ## Sales microservice
 
-Explain your models and integration with the inventory
-microservice, here.
-
 The Sales microservice provides a RESTful API interface for viewing and
 creating Sales Records, Sales Employees and Customers. A polling service makes regular
 requests to the Inventory API to update AutomobileVO value objects which the sales microservice uses to represent vehicles that may be available for sale or have been sold.
@@ -270,7 +422,7 @@ The following documentation describes the available functionality in the Sales A
 | List Sales Persons:      | GET        | http://localhost:8090/api/sales_persons/ |
 | Create Sales Person:     | POST       | http://localhost:8090/api/sales_persons/ |
 
-GET Example:
+GET List Example:
 
             {
             "sales_persons": [
@@ -304,7 +456,7 @@ POST Return Example:
 | List Customers:  | GET        | http://localhost:8090/api/customers/ |
 | Create Customer: | POST       | http://localhost:8090/api/customers/ |
 
-GET Example:
+GET List Example:
 
             {
         "customers": [
@@ -337,7 +489,7 @@ POST Return Example:
 | List Sales History:      | GET        | http://localhost:8090/api/sales_history/ |
 | Create Sales History:     | POST       | http://localhost:8090/api/sales_history/ |
 
-GET Example:
+GET List Example:
 
             {
     "sales_history": [
