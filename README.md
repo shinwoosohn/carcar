@@ -410,8 +410,11 @@ The following models and associated parameters are used:
 There are RESTful endpoints for the following entities:
 
 Sales Person: List or Create Sales Persons
+
 Customer: List or Create Customers
+
 Sales History: List or Create Sales Records
+
 
 The following documentation describes the available functionality in the Sales API:
 
