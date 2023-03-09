@@ -17,8 +17,10 @@ function Nav() {
               <ul className="dropdown-menu" aria-labelledby='navbarDropdownMenuLink'>
                 <li><NavLink className="dropdown-item" aria-current="page" to="/manufacturers/">Manufacturer List</NavLink></li>
                 <li><NavLink className="dropdown-item" aria-current="page" to="/manufacturers/new/">Create manufacturer</NavLink></li>
+                <div className="dropdown-divider"></div>
                 <li><NavLink className="dropdown-item" aria-current="page" to="/models/">Vehicle Model List</NavLink></li>
                 <li><NavLink className="dropdown-item" aria-current="page" to="/models/new/">Create vehicle model</NavLink></li>
+                <div className="dropdown-divider"></div>
                 <li><NavLink className="dropdown-item" aria-current="page" to="/automobiles/">Automobile List</NavLink></li>
                 <li><NavLink className="dropdown-item" aria-current="page" to="/automobiles/new/">Create automobile</NavLink></li>
               </ul>
@@ -32,6 +34,7 @@ function Nav() {
               <ul className="dropdown-menu" aria-labelledby='navbarDropdownMenuLink'>
                 <li><NavLink className="dropdown-item" aria-current="page" to="/appointments/">Appointment List</NavLink></li>
                 <li><NavLink className="dropdown-item" aria-current="page" to="/appointments/new/">Create appointment</NavLink></li>
+                <div className="dropdown-divider"></div>
                 <li><NavLink className="dropdown-item" aria-current="page" to="/services/">Service History</NavLink></li>
               </ul>
             </li>
@@ -55,7 +58,9 @@ function Nav() {
               <ul className="dropdown-menu" aria-labelledby='navbarDropdownMenuLink'>
                 <li><NavLink className="dropdown-item" aria-current="page" to="/sales/newsale">New Sales Record</NavLink></li>
                 <li><NavLink className="dropdown-item" aria-current="page" to="/sales/saleshistory">View Sales History</NavLink></li>
+                <div className="dropdown-divider"></div>
                 <li><NavLink className="dropdown-item" aria-current="page" to="/sales/newcustomer">New Customer</NavLink></li>
+                <div className="dropdown-divider"></div>
                 <li><NavLink className="dropdown-item" aria-current="page" to="/sales/newemployee">New Sales Employee</NavLink></li>
               </ul>
             </li>
